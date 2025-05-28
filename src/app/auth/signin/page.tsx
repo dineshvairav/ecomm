@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import { SignInForm } from '@/components/auth/SignInForm';
 import { GuestLoginForm } from '@/components/auth/GuestLoginForm';

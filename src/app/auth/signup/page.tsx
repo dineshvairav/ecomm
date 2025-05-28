@@ -1,4 +1,6 @@
 
+"use client";
+
 import Link from 'next/link';
 import { SignUpForm } from '@/components/auth/SignUpForm';
 import { Button } from '@/components/ui/button';
