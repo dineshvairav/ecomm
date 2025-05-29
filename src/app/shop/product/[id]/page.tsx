@@ -67,9 +67,6 @@ export default async function ProductDetailPage({ params }: Promise<{ params: { 
   return <ProductDetailClient product={product} />;
 }
 
-  return <ProductDetailClient product={product} />;
-}
-
 // This function is needed for `next build` to generate static paths if you are not using dynamic rendering.
 // For this demo, we will assume dynamic rendering on demand.
 // export async function generateStaticParams() {
