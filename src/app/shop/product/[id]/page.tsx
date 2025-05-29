@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -48,9 +49,8 @@ async function getProductById(id: string): Promise<Product | null> {
   return product || null;
 }
 
-export default async function ProductDetailPage({ params }: Promise<{ params: { id: string } }>) {
-  const resolvedParams = await params; // Resolve the promise
-  const product = await getProductById(resolvedParams.id);
+export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+  const product = await getProductById(params.id);
 
   if (!product) {
     return (
