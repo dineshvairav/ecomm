@@ -48,8 +48,9 @@ async function getProductById(id: string): Promise<Product | null> {
   return product || null;
 }
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = await getProductById(params.id);
+export default async function ProductDetailPage({ params }: Promise<{ params: { id: string } }>) {
+  const resolvedParams = await params; // Resolve the promise
+  const product = await getProductById(resolvedParams.id);
 
   if (!product) {
     return (
@@ -62,6 +63,9 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
       </div>
     );
   }
+
+  return <ProductDetailClient product={product} />;
+}
 
   return <ProductDetailClient product={product} />;
 }
