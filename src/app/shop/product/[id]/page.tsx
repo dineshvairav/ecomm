@@ -49,7 +49,7 @@ async function getProductById(id: string): Promise<Product | null> {
   return product || null;
 }
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+export default async function ProductDetailPage({ params }: PageProps<{ params: { id: string } }>) {
   const product = await getProductById(params.id);
 
   if (!product) {
