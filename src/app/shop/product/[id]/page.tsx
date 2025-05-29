@@ -69,9 +69,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 }
 // This function is needed for `next build` to generate static paths if you are not using dynamic rendering.
 // For this demo, we will assume dynamic rendering on demand.
-// export async function generateStaticParams() {
-//   // For a real app, fetch all product IDs here
-//   const mockProductIds = ['electronics-p1', 'fashion-p1', 'home-goods-p1']; // Example IDs
-//   return mockProductIds.map((id) => ({ id }));
-// }
-
+export async function generateStaticParams() {
+  // For a real app, fetch all product IDs here
+  const allMockProductIds = [
+    ...Array.from({ length: 12 }, (_, i) => `electronics-p${i + 1}`),
+    ...Array.from({ length: 15 }, (_, i) => `fashion-p${i + 1}`),
+    ...Array.from({ length: 10 }, (_, i) => `home-goods-p${i + 1}`),
+    ...Array.from({ length: 18 }, (_, i) => `books-p${i + 1}`),
+    ...Array.from({ length: 9 }, (_, i) => `sports-p${i + 1}`),
+    ...Array.from({ length: 8 }, (_, i) => `brand-a-prod-p${i + 1}`),
+    ...Array.from({ length: 10 }, (_, i) => `brand-b-prod-p${i + 1}`),
+    ...Array.from({ length: 7 }, (_, i) => `brand-c-prod-p${i + 1}`),
+    ...Array.from({ length: 12 }, (_, i) => `brand-d-prod-p${i + 1}`),
+  ];
+  return allMockProductIds.map((id) => ({ id }));
+}
