@@ -5,7 +5,7 @@ import AppLogo from '@/components/AppLogo';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ShoppingCart, UserCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet"; // Added SheetTitle
 
 const NavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
   <Link href={href} passHref>
@@ -86,6 +86,7 @@ const Header = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col space-y-4">
                   <div className="flex justify-between items-center mb-4">
                      <Link href="/" passHref onClick={closeSheet}>
