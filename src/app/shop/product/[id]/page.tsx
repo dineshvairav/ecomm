@@ -49,8 +49,9 @@ async function getProductById(id: string): Promise<Product | null> {
   return product || null;
 }
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = await getProductById(params.id);
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const product = await getProductById(resolvedParams.id);
 
   if (!product) {
     return (
@@ -66,7 +67,6 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
 
   return <ProductDetailClient product={product} />;
 }
-
 // This function is needed for `next build` to generate static paths if you are not using dynamic rendering.
 // For this demo, we will assume dynamic rendering on demand.
 // export async function generateStaticParams() {
